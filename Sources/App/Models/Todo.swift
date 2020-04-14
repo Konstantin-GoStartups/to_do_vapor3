@@ -4,7 +4,7 @@ import Vapor
 import Foundation
 
 
-final class Todo: Content, MySQLModel, Migration {
+final class Todo: Content {
     var id: Int? = nil
     var title: String
     var text: String
@@ -21,3 +21,6 @@ final class Todo: Content, MySQLModel, Migration {
         }
     }
 }
+
+extension Todo: MySQLModel {}
+extension Todo: Migration {}
