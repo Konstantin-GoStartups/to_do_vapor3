@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "toDo_vapor3",
+    name: "todo-vapor3",
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", .upToNextMinor(from: "3.3.0")),
