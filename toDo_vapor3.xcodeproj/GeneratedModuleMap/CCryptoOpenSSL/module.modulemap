@@ -1,0 +1,4 @@
+module CCryptoOpenSSL {
+    umbrella "/Users/lilkosi/Workspace/Vapor_projects/toDo_vapor3/.build/checkouts/crypto/Sources/CCryptoOpenSSL/include"
+    export *
+}

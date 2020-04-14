@@ -1,16 +1,19 @@
-// 
-// ToDo.swift
-//  App
-//
-//  Created by Konstantin Kostadinov on 14.04.20
-//  Copyright (C) 2012-2020 by Activbody, Inc. All Rights Reserved.
-
-//  Data contained herein is proprietary information of Activbody, Inc,
-//  which shall be treated confidentially and shall not be used by anyone,
-//  furnished to third parties or made public without prior written permission by Activbody, Inc.
-
-//  The Activbody(TM), Activ5(TM) and TAO brands and products are fully protected
-//  by international trademark, copyright and patent laws.
-//  All rights reserved 2008-2020 Activbody, Inc.
-
+import Fluent
+import FluentMySQL
+import Vapor
 import Foundation
+
+
+struct ToDo: Content, MySQLModel, Migration {
+    var id: Int? = nil
+    var title: String
+    var text: String
+    
+    static func prepare(on conn: MySQLConnection) -> EventLoopFuture<Void> {
+        return MySQLDatabase.create(self, on: conn) { (builder) in
+            builder.field(for: \.id, isIdentifier: true)
+            builder.field(for: \.title)
+            builder.field(for: \.text, type: .text())
+        }
+    }
+}
