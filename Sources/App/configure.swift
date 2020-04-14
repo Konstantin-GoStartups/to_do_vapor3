@@ -25,6 +25,6 @@ public func configure(
     //Configure migration
     
     var migrationConfig = MigrationConfig()
-    migrationConfig.add(model: ToDo.self, database: DatabaseIdentifier<ToDo.Database>.mysql)
+    migrationConfig.add(model: Todo.self, database: DatabaseIdentifier<Todo.Database>.mysql)
     services.register(migrationConfig)
 }
